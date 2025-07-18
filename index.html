@@ -171,6 +171,37 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .floating-crystal {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 20s linear infinite, sparkle 3s ease-in-out infinite;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(30px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
   </style>
 </head>
 <body>
@@ -320,16 +351,16 @@
       });
     });
 
-    // 滚动淡入效果
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(el => observer.observe(el));
+   <script>
+  // 生成漂浮光点
+  for (let i = 0; i < 25; i++) {
+    const crystal = document.createElement('div');
+    crystal.classList.add('floating-crystal');
+    crystal.style.top = Math.random() * 100 + 'vh';
+    crystal.style.left = Math.random() * 100 + 'vw';
+    crystal.style.animationDelay = Math.random() * 10 + 's';
+    document.body.appendChild(crystal);
+  }
   </script>
 </body>
 </html>
