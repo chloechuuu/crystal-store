@@ -7,90 +7,112 @@
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #fdfdfd;
+      background-color: #EAF1ED;
       color: #222;
       margin: 0;
       padding: 0;
     }
+
     header {
+      background-color: #355E52;
       padding: 24px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #eaeaea;
     }
+
     .logo {
       font-size: 20px;
       font-weight: bold;
       letter-spacing: 1px;
+      color: white;
     }
+
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: #222;
+      color: #f1f1f1;
       font-size: 14px;
     }
+
     .hero {
       text-align: center;
       padding: 80px 40px 40px;
     }
+
     .hero h1 {
       font-size: 36px;
       margin-bottom: 16px;
+      color: #355E52;
     }
+
     .hero p {
       font-size: 16px;
-      color: #555;
+      color: #444;
       max-width: 600px;
       margin: auto;
+      line-height: 1.6;
     }
+
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 32px;
       padding: 60px 40px;
     }
+
     .product {
-      border: 1px solid #eaeaea;
+      border: 1px solid #C3D1CC;
       border-radius: 12px;
       padding: 16px;
       background: white;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease;
     }
+
+    .product:hover {
+      transform: translateY(-4px);
+    }
+
     .product img {
       width: 100%;
       border-radius: 10px;
       height: 220px;
       object-fit: cover;
     }
+
     .product-name {
       margin-top: 12px;
       font-weight: 500;
       font-size: 16px;
+      color: #355E52;
     }
+
     .product-desc {
       font-size: 13px;
       color: #666;
       margin-top: 4px;
     }
+
     .philosophy {
       padding: 60px 40px;
       text-align: center;
       font-size: 15px;
       color: #444;
       line-height: 1.7;
-      background-color: #f9f9f9;
     }
+
     footer {
       padding: 40px;
       text-align: center;
       font-size: 13px;
-      color: #999;
-      border-top: 1px solid #eaeaea;
+      background-color: #355E52;
+      color: #ddd;
     }
+
     footer a {
-      color: #999;
+      color: #ddd;
       text-decoration: none;
       margin: 0 10px;
     }
@@ -114,7 +136,7 @@
 
 <section class="products">
   <div class="product">
-    <img src="https://github.com/chloechuuu/crystal-store/blob/main/42e8aa8a3853c6d7eac723ea9982f999.jpg" alt="Amethyst Raw Crystal" />
+    <img src="images/amethyst.jpg" alt="Amethyst Raw Crystal" />
     <div class="product-name">Amethyst</div>
     <div class="product-desc">Calming energy for spiritual healing and intuition.</div>
   </div>
@@ -152,4 +174,3 @@
 
 </body>
 </html>
-
