@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PURE STILLNESS | Healing Crystals</title>
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -11,10 +15,22 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #2A2F33;
+      background: linear-gradient(to bottom, #2A2F33 0%, #4D4F52 50%, #F1BBC9 100%);
       color: #F1BBC9;
       margin: 0;
       padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 粒子背景样式 */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
 
     header {
@@ -23,6 +39,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .logo {
@@ -42,6 +60,8 @@
     .hero {
       text-align: center;
       padding: 80px 40px 40px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 {
@@ -63,6 +83,8 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 32px;
       padding: 60px 40px;
+      position: relative;
+      z-index: 2;
     }
 
     .product {
@@ -72,14 +94,12 @@
       background: white;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
     .product:hover {
       transform: scale(1.02);
-      box-shadow:
-        0 8px 16px rgba(0, 0, 0, 0.08),
-        0 0 20px rgba(241, 187, 201, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     }
 
     .product img {
@@ -88,10 +108,6 @@
       height: 220px;
       object-fit: cover;
       transition: transform 0.3s ease;
-    }
-
-    .product img:hover {
-      transform: scale(1.05);
     }
 
     .product-name {
@@ -105,28 +121,6 @@
       font-size: 13px;
       color: #4D613C;
       margin-top: 4px;
-    }
-
-    .philosophy {
-      padding: 60px 40px;
-      text-align: center;
-      font-size: 15px;
-      color: #F1BBC9;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 40px;
-      text-align: center;
-      font-size: 13px;
-      background-color: #4D613C;
-      color: #F1BBC9;
-    }
-
-    footer a {
-      color: #F1BBC9;
-      text-decoration: none;
-      margin: 0 10px;
     }
 
     .wishlist-btn {
@@ -146,7 +140,32 @@
       color: white;
     }
 
-    /* 淡入动效 */
+    .philosophy {
+      padding: 60px 40px;
+      text-align: center;
+      font-size: 15px;
+      color: #F1BBC9;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer {
+      padding: 40px;
+      text-align: center;
+      font-size: 13px;
+      background-color: #4D613C;
+      color: #F1BBC9;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer a {
+      color: #F1BBC9;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -157,108 +176,122 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* 心跳动画 */
-    .wishlist-btn.added {
-      animation: heartbeat 0.4s ease;
-    }
-
-    @keyframes heartbeat {
-      0%   { transform: scale(1); }
-      25%  { transform: scale(1.2); }
-      50%  { transform: scale(0.95); }
-      100% { transform: scale(1); }
-    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">PURE STILLNESS</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- ✧ 粒子背景 ✧ -->
+  <div id="particles-js"></div>
 
-<section class="hero fade-in">
-  <h1>Crystals That Calm the Soul</h1>
-  <p>Natural raw stones to purify your energy field and soothe your spirit—helping you find clarity and peace in a fast-paced world.</p>
-</section>
+  <header>
+    <div class="logo">PURE STILLNESS</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="products">
-  <div class="product fade-in">
-    <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/1.jpg" alt="Raw Crystal" />
-    <div class="product-name">Raw Crystal</div>
-    <div class="product-desc">Calming energy for spiritual healing and intuition.</div>
-    <button class="wishlist-btn">♡ Add to Wishlist</button>
-  </div>
-  <div class="product fade-in">
-    <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/3.jpg" alt="Clear Green Quartz" />
-    <div class="product-name">Clear Green Quartz</div>
-    <div class="product-desc">Promotes self-love, compassion, and emotional healing.</div>
-    <button class="wishlist-btn">♡ Add to Wishlist</button>
-  </div>
-  <div class="product fade-in">
-    <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/2.jpg" alt="Galaxy Crystal" />
-    <div class="product-name">Galaxy Crystal</div>
-    <div class="product-desc">Amplifies energy and helps with mental clarity.</div>
-    <button class="wishlist-btn">♡ Add to Wishlist</button>
-  </div>
-  <div class="product fade-in">
-    <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/4.jpg" alt="Raw Crystal" />
-    <div class="product-name">Raw Crystal</div>
-    <div class="product-desc">Brings light, abundance, and creative energy.</div>
-    <button class="wishlist-btn">♡ Add to Wishlist</button>
-  </div>
-</section>
+  <section class="hero">
+    <h1>Crystals That Calm the Soul</h1>
+    <p>Natural raw stones to purify your energy field and soothe your spirit—helping you find clarity and peace in a fast-paced world.</p>
+  </section>
 
-<section class="philosophy fade-in">
-  <p>
-    At Pure Stillness, we believe that beauty lies in simplicity.  
-    Our raw crystals are thoughtfully selected to support your emotional balance, cleanse your space, and ground your energy.  
-    Let these natural stones bring moments of peace and mindfulness to your everyday life.
-  </p>
-</section>
+  <section class="products">
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/1.jpg" alt="Raw Crystal" />
+      <div class="product-name">Raw Crystal</div>
+      <div class="product-desc">Calming energy for spiritual healing and intuition.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/3.jpg" alt="Clear Green Quartz" />
+      <div class="product-name">Clear Green Quartz</div>
+      <div class="product-desc">Promotes self-love, compassion, and emotional healing.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/2.jpg" alt="Galaxy Crystal" />
+      <div class="product-name">Galaxy Crystal</div>
+      <div class="product-desc">Amplifies energy and helps with mental clarity.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/refs/heads/main/images%3A/4.jpg" alt="Raw Crystal" />
+      <div class="product-name">Raw Crystal</div>
+      <div class="product-desc">Brings light, abundance, and creative energy.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+  </section>
 
-<footer class="fade-in">
-  Follow us: 
-  <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a> |
-  <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a><br><br>
-  © 2025 Pure Stillness. All rights reserved.
-</footer>
+  <section class="philosophy fade-in">
+    <p>
+      At Pure Stillness, we believe that beauty lies in simplicity.  
+      Our raw crystals are thoughtfully selected to support your emotional balance, cleanse your space, and ground your energy.  
+      Let these natural stones bring moments of peace and mindfulness to your everyday life.
+    </p>
+  </section>
 
-<script>
-  // 心愿按钮逻辑
-  document.querySelectorAll('.wishlist-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isAdded = btn.classList.contains('added');
-      if (isAdded) {
-        btn.textContent = '♡ Add to Wishlist';
-        btn.style.backgroundColor = 'transparent';
-        btn.style.color = '#4D613C';
-        btn.classList.remove('added');
-      } else {
-        btn.textContent = '♥ Added to Wishlist';
-        btn.style.backgroundColor = '#4D613C';
-        btn.style.color = 'white';
-        btn.classList.add('added');
-      }
+  <footer>
+    Follow us: 
+    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a> |
+    <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a><br><br>
+    © 2025 Pure Stillness. All rights reserved.
+  </footer>
+
+  <!-- 脚本区域 -->
+  <script>
+    // Add to Wishlist toggle
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isAdded = btn.classList.contains('added');
+        if (isAdded) {
+          btn.textContent = '♡ Add to Wishlist';
+          btn.style.backgroundColor = 'transparent';
+          btn.style.color = '#4D613C';
+          btn.classList.remove('added');
+        } else {
+          btn.textContent = '♥ Added to Wishlist';
+          btn.style.backgroundColor = '#4D613C';
+          btn.style.color = 'white';
+          btn.classList.add('added');
+        }
+      });
     });
-  });
 
-  // 滚动触发淡入显示
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ParticlesJS 初始化
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#F1BBC9' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.3, random: true },
+        size: { value: 4, random: true },
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: 'none',
+          out_mode: 'out'
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: false }, onclick: { enable: false } }
+      },
+      retina_detect: true
     });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => observer.observe(el));
-</script>
-
+  </script>
 </body>
 </html>
+
