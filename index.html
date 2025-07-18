@@ -204,9 +204,18 @@
 <script>
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      btn.textContent = '♥ Added to Wishlist';
-      btn.style.backgroundColor = '#4D613C';
-      btn.style.color = 'white';
+      const isAdded = btn.classList.contains('added');
+      if (isAdded) {
+        btn.textContent = '♡ Add to Wishlist';
+        btn.style.backgroundColor = 'transparent';
+        btn.style.color = '#4D613C';
+        btn.classList.remove('added');
+      } else {
+        btn.textContent = '♥ Added to Wishlist';
+        btn.style.backgroundColor = '#4D613C';
+        btn.style.color = 'white';
+        btn.classList.add('added');
+      }
     });
   });
 </script>
