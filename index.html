@@ -15,17 +15,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #2A2F33;
       color: #F1BBC9;
-      position: relative;
-      z-index: 1;
-    }
-
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
     }
 
     header {
@@ -34,8 +23,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      z-index: 2;
     }
 
     .logo {
@@ -55,8 +42,6 @@
     .hero {
       text-align: center;
       padding: 80px 40px 40px;
-      position: relative;
-      z-index: 2;
     }
 
     .hero h1 {
@@ -78,8 +63,6 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 32px;
       padding: 60px 40px;
-      position: relative;
-      z-index: 2;
     }
 
     .product {
@@ -102,7 +85,6 @@
       border-radius: 10px;
       height: 220px;
       object-fit: cover;
-      transition: transform 0.3s ease;
     }
 
     .product-name {
@@ -141,8 +123,6 @@
       font-size: 15px;
       color: #F1BBC9;
       line-height: 1.7;
-      position: relative;
-      z-index: 2;
     }
 
     footer {
@@ -151,8 +131,6 @@
       font-size: 13px;
       background-color: #4D613C;
       color: #F1BBC9;
-      position: relative;
-      z-index: 2;
     }
 
     footer a {
@@ -174,8 +152,6 @@
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-
   <header>
     <div class="logo">PURE STILLNESS</div>
     <nav>
@@ -191,8 +167,65 @@
   </section>
 
   <section class="products">
-    <!-- 此处保留你已有的产品内容 -->
-    <!-- 略 -->
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/1.jpg" alt="Raw Crystal" />
+      <div class="product-name">Raw Crystal</div>
+      <div class="product-desc">Calming energy for spiritual healing and intuition.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/3.jpg" alt="Clear Green Quartz" />
+      <div class="product-name">Clear Green Quartz</div>
+      <div class="product-desc">Promotes self-love, compassion, and emotional healing.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/2.jpg" alt="Galaxy Crystal" />
+      <div class="product-name">Galaxy Crystal</div>
+      <div class="product-desc">Amplifies energy and helps with mental clarity.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+    <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/4.jpg" alt="Raw Crystal" />
+      <div class="product-name">Raw Crystal</div>
+      <div class="product-desc">Brings light, abundance, and creative energy.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+     <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/5.jpg" alt="Candy Crystal" />
+      <div class="product-name">Candy Crystal</div>
+      <div class="product-desc">Brings light, abundance, and creative energy.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+     <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/6.jpg" alt="Oil Inclusion Crystal" />
+      <div class="product-name">Oil Inclusion Crystal</div>
+      <div class="product-desc">Treasure of Nature, colorful, and full of energy.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+     <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/9.jpg" alt="Clear Quartz" />
+      <div class="product-name">Clear Quartz</div>
+      <div class="product-desc">Clear, Pure, and Spiritual.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+     <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/10.jpg" alt="Citrine" />
+      <div class="product-name">Citrine</div>
+      <div class="product-desc">Sunlit, Uplifting, and Abundant.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
+     <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/11.jpg" alt="Moonstone" />
+      <div class="product-name">Moonstone</div>
+      <div class="product-desc">Luminous, Iridescent, and Nurturing.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div> <div class="product fade-in">
+      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/12.jpg" alt="Amethyst" />
+      <div class="product-name">Amethyst</div>
+      <div class="product-desc">Regal, Mystical, and Grounding.</div>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+    </div>
   </section>
 
   <section class="philosophy fade-in">
@@ -210,41 +243,7 @@
     © 2025 Pure Stillness. All rights reserved.
   </footer>
 
-  <!-- 粒子库 -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: {
-          value: 20,
-          density: { enable: true, value_area: 1000 }
-        },
-        color: { value: ["#3a4640", "#4d5a49", "#5b6157"] },
-        shape: { type: "circle" },
-        opacity: {
-          value: 0.08,
-          random: true
-        },
-        size: {
-          value: 4,
-          random: true
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          out_mode: "out"
-        }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: false },
-          onclick: { enable: false }
-        }
-      },
-      retina_detect: true
-    });
-
     // Wishlist toggle
     document.querySelectorAll('.wishlist-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -262,7 +261,20 @@
         }
       });
     });
+
+    // 淡入动画
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    fadeEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
-
