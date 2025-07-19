@@ -3,43 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=2" />
-  <title>PURE STILLNESS | Healing Crystals</title>
+  <title>PURE STILLNESS | Healing Crystals</title> 
   <style>
     html {
       scroll-behavior: smooth;
     }
     .stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    radial-gradient(#ffffff22 1px, transparent 1px),
-    radial-gradient(#ffffff11 1px, transparent 1px),
-    radial-gradient(#ffffff33 1px, transparent 1px);
-  background-size: 1200px 1200px, 800px 800px, 600px 600px;
-  animation: twinkle 20s infinite ease-in-out;
-  opacity: 0.3;
-}
-
-@keyframes twinkle {
-  0%, 100% { background-position: 0 0, 0 0, 0 0; }
-  50% { background-position: -50px -30px, 80px 120px, -100px 60px; }
-}
-
-
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(#ffffff22 1px, transparent 1px),
+        radial-gradient(#ffffff11 1px, transparent 1px),
+        radial-gradient(#ffffff33 1px, transparent 1px);
+      background-size: 1200px 1200px, 800px 800px, 600px 600px;
+      animation: twinkle 20s infinite ease-in-out;
+      opacity: 0.3;
+    }
+    @keyframes twinkle {
+      0%, 100% { background-position: 0 0, 0 0, 0 0; }
+      50% { background-position: -50px -30px, 80px 120px, -100px 60px; }
+    }
     body {
       margin: 0;
       padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #2A2F33;
       color: #F1BBC9;
-    }
-<div class="stars"></div>
-
+      position: relative;
+      z-index: 1; /* 确保内容层在星空层之上 */
+    }    
     header {
       background-color: #F1BBC9;
       padding: 24px 40px;
