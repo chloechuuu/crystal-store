@@ -120,7 +120,11 @@
       font-size: 16px;
       color: #4D613C;
     }
-
+    .product-name.clicked {
+      color: #fff;
+      text-shadow: 0 0 6px #F1BBC9;
+      transition: all 0.3s ease;
+    }
     .product-desc {
       font-size: 13px;
       color: #4D613C;
@@ -302,6 +306,14 @@
     });
 
     fadeEls.forEach(el => observer.observe(el));
+  
+    // Product name click highlight
+    document.querySelectorAll('.product-name').forEach(name => {
+      name.addEventListener('click', () => {
+        name.classList.toggle('clicked');
+      });
+    });
+
   </script>
 </body>
 </html>
