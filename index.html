@@ -5,207 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=2" />
   <title>PURE STILLNESS | Healing Crystals</title> 
   <style>
-    .morning-glow-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: linear-gradient(120deg, #e6f0e9, #f9f6f2, #d7e4dd);
-    background-size: 400% 400%;
-    animation: glowFlow 30s ease infinite;
-    z-index: -1; /* 改为比 stars 更高 */
-    opacity: 0.7;  /* 提高可见度 */
-    filter: blur(30px);  /* 降低模糊程度 */
-    mix-blend-mode: lighten; /* 更自然地混合 */
+  html {
+    scroll-behavior: smooth;
   }
 
-    @keyframes glowFlow {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+  /* 🌅 晨光渐变背景（不会遮挡内容） */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 20% 30%, #d0e8cf 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, #f9f1e5 0%, transparent 60%);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+    animation: morningGlow 30s ease-in-out infinite alternate;
+    background-size: 200% 200%;
+    background-position: center;
+  }
 
-    html {
-      scroll-behavior: smooth;
+  @keyframes morningGlow {
+    0% {
+      background-position: 20% 30%;
+      opacity: 0.2;
     }
-    .stars {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      background-image:
-        radial-gradient(#ffffff11 1px, transparent 1px),
-        radial-gradient(#ffffff08 1px, transparent 1px),
-        radial-gradient(#ffffff22 1px, transparent 1px);
-      background-size: 1200px 1200px, 800px 800px, 600px 600px;
-      animation: twinkle 20s infinite ease-in-out;
-      opacity: 0.15;
+    100% {
+      background-position: 80% 70%;
+      opacity: 0.4;
     }
-    @keyframes twinkle {
-      0%, 100% { background-position: 0 0, 0 0, 0 0; }
-      50% { background-position: -50px -30px, 80px 120px, -100px 60px; }
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #2A2F33;
-      color: #F1BBC9;
-      position: relative;
-      z-index: 1; /* 确保内容层在星空层之上 */
-    }    
-    header {
-      background-color: #F1BBC9;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  }
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #4D613C;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #2A2F33;
+    color: #F1BBC9;
+  }
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #4D613C;
-      font-size: 14px;
-    }
+  header {
+    background-color: #F1BBC9;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .hero {
-      text-align: center;
-      padding: 80px 40px 40px;
-    }
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #4D613C;
+  }
 
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 16px;
-      color: #F1BBC9;
-    }
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4D613C;
+    font-size: 14px;
+  }
 
-    .hero p {
-      font-size: 16px;
-      color: #F1BBC9;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
+  .hero {
+    text-align: center;
+    padding: 80px 40px 40px;
+  }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      padding: 60px 40px;
-    }
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    color: #F1BBC9;
+  }
 
-    .product {
-      border: 1px solid #4D613C;
-      border-radius: 12px;
-      padding: 16px;
-      background: white;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-      transition: transform 0.2s ease;
-    }
+  .hero p {
+    font-size: 16px;
+    color: #F1BBC9;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+  }
 
-    .product:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-    }
-    .product {
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-      transition: box-shadow 0.4s ease;
-    }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    padding: 60px 40px;
+  }
 
-    .product:hover {
-      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
-    }
+  .product {
+    border: 1px solid #4D613C;
+    border-radius: 12px;
+    padding: 16px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease;
+  }
 
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      height: 220px;
-      object-fit: cover;
-    }
+  .product:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
 
-    .product-name {
-      margin-top: 12px;
-      font-weight: 500;
-      font-size: 16px;
-      color: #4D613C;
-    }
-    .product-name.clicked {
-      color: #fff;
-      text-shadow: 0 0 6px #F1BBC9;
-      transition: all 0.3s ease;
-    }
-    .product-desc {
-      font-size: 13px;
-      color: #4D613C;
-      margin-top: 4px;
-    }
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+  }
 
-    .wishlist-btn {
-      margin-top: 12px;
-      padding: 6px 12px;
-      background-color: transparent;
-      border: 1px solid #4D613C;
-      border-radius: 20px;
-      font-size: 13px;
-      color: #4D613C;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+  .product-name {
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #4D613C;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+  }
 
-    .wishlist-btn:hover {
-      background-color: #4D613C;
-      color: white;
-    }
+  .product-name.clicked {
+    background-color: #F1BBC9;
+    color: #2A2F33;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
 
-    .philosophy {
-      padding: 60px 40px;
-      text-align: center;
-      font-size: 15px;
-      color: #F1BBC9;
-      line-height: 1.7;
-    }
+  .product-desc {
+    font-size: 13px;
+    color: #4D613C;
+    margin-top: 4px;
+  }
 
-    footer {
-      padding: 40px;
-      text-align: center;
-      font-size: 13px;
-      background-color: #4D613C;
-      color: #F1BBC9;
-    }
+  .wishlist-btn {
+    margin-top: 12px;
+    padding: 6px 12px;
+    background-color: transparent;
+    border: 1px solid #4D613C;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #4D613C;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    footer a {
-      color: #F1BBC9;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+  .wishlist-btn:hover {
+    background-color: #4D613C;
+    color: white;
+  }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
+  .philosophy {
+    padding: 60px 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #F1BBC9;
+    line-height: 1.7;
+  }
 
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  footer {
+    padding: 40px;
+    text-align: center;
+    font-size: 13px;
+    background-color: #4D613C;
+    color: #F1BBC9;
+  }
+
+  footer a {
+    color: #F1BBC9;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+  
 </head>
 <body>
   <div class="morning-glow-bg"></div>
