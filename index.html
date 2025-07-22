@@ -1,432 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=2" />
-  <title>PURE STILLNESS | Healing Crystals</title> 
-  <style>
-  /* 让html和body撑满高度 */
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test Background</title>
+<style>
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
   }
-
-  /* 背景容器，固定全屏，不阻挡内容 */
+  body {
+    background-color: #2A2F33;
+    font-family: sans-serif;
+    color: #F1BBC9;
+  }
   .background-effect {
     position: fixed;
     top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: -1;
-
-    /* 渐变背景 */
-    background: radial-gradient(circle at 30% 40%, #d0e8cf 0%, transparent 70%),
-              radial-gradient(circle at 80% 80%, #f9f1e5 0%, transparent 70%);
+    background: 
+      radial-gradient(circle at 30% 40%, #d0e8cf 0%, transparent 70%),
+      radial-gradient(circle at 80% 80%, #f9f1e5 0%, transparent 70%);
     opacity: 0.25;
     animation: bgGlow 30s ease-in-out infinite alternate;
     background-size: 200% 200%;
     background-position: center;
   }
-
-  /* 背景渐变缓慢漂移 */
-  @keyframes bgGlow {
-    0% {
-      background-position: 30% 40%, 80% 80%;
-    }
-    100% {
-    background-position: 80% 80%, 30% 40%;
-    }
-  }
-
-  /* 小光点（用伪元素制造多个随机闪烁点） */
   .background-effect::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-image:
-      radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 2px),
-      radial-gradient(circle, rgba(255,255,255,0.08) 1.5px, transparent 2.5px);
+      radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 2px),
+      radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 2.5px);
     background-repeat: repeat;
     background-size: 150px 150px, 80px 80px;
     animation: twinkle 15s linear infinite;
-    opacity: 0.3;
+    opacity: 0.5;
     pointer-events: none;
   }
-
+  @keyframes bgGlow {
+    0% {
+      background-position: 30% 40%, 80% 80%;
+    }
+    100% {
+      background-position: 80% 80%, 30% 40%;
+    }
+  }
   @keyframes twinkle {
     0%, 100% { background-position: 0 0, 0 0; }
     50% { background-position: 75px 75px, 40px 40px; }
   }
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #2A2F33;
-    color: #F1BBC9;
-  }
-
   header {
+    padding: 20px;
     background-color: #F1BBC9;
-    padding: 24px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
     color: #4D613C;
   }
-
-  nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #4D613C;
-    font-size: 14px;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 80px 40px 40px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-    margin-bottom: 16px;
-    color: #F1BBC9;
-  }
-
-  .hero p {
-    font-size: 16px;
-    color: #F1BBC9;
-    max-width: 600px;
-    margin: auto;
-    line-height: 1.6;
-  }
-
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 32px;
-    padding: 60px 40px;
-  }
-
-  .product {
-    border: 1px solid #4D613C;
-    border-radius: 12px;
-    padding: 16px;
-    background: white;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-    transition: transform 0.2s ease;
-  }
-
-  .product:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .product img {
-    width: 100%;
-    border-radius: 10px;
-    height: 220px;
-    object-fit: cover;
-  }
-
-  .product-name {
-    margin-top: 12px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #4D613C;
-    cursor: pointer;
-    transition: color 0.3s, background-color 0.3s;
-  }
-
-  .product-name.clicked {
-    background-color: #F1BBC9;
-    color: #2A2F33;
-    padding: 4px 8px;
-    border-radius: 8px;
-  }
-
-  .product-desc {
-    font-size: 13px;
-    color: #4D613C;
-    margin-top: 4px;
-  }
-
-  .wishlist-btn {
-    margin-top: 12px;
-    padding: 6px 12px;
-    background-color: transparent;
-    border: 1px solid #4D613C;
-    border-radius: 20px;
-    font-size: 13px;
-    color: #4D613C;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .wishlist-btn:hover {
-    background-color: #4D613C;
-    color: white;
-  }
-
-  .philosophy {
-    padding: 60px 40px;
-    text-align: center;
-    font-size: 15px;
-    color: #F1BBC9;
-    line-height: 1.7;
-  }
-
-  footer {
-    padding: 40px;
-    text-align: center;
-    font-size: 13px;
-    background-color: #4D613C;
-    color: #F1BBC9;
-  }
-
-  footer a {
-    color: #F1BBC9;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-
-  .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .crystal-particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.03), transparent),
-              radial-gradient(ellipse at bottom, rgba(180, 220, 200, 0.04), transparent);
-    animation: flowBackground 10s infinite alternate;
-  }
-
-  @keyframes flowBackground {
-    0% {
-      background-position: 0% 0%;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
-  }
-
 </style>
-  
 </head>
 <body>
-  <div class="crystal-particles"></div>
-  <div class="morning-glow-bg"></div>
-  <div class="stars"></div>
   <div class="background-effect"></div>
-
-  <header>
-    <div class="logo">PURE STILLNESS</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Crystals That Calm the Soul</h1>
-    <p>Natural raw stones to purify your energy field and soothe your spirit—helping you find clarity and peace in a fast-paced world.</p>
-  </section>
-
-  <section class="products">
-    <section class="energy-test fade-in">
-      <h2 style="text-align: center; color: #F1BBC9;">Crystal Energy Test</h2>
-      <div style="text-align: center; margin-top: 20px;">
-        <button id="startTestBtn" style="padding: 10px 20px; font-size: 15px; border-radius: 20px; border: 1px solid #4D613C; background: transparent; color: #4D613C; cursor: pointer;">
-          🔮 Start Your Energy Test
-        </button>
-      </div>
-    </section>
-
-    <!-- 弹窗 -->
-    <div id="quizModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:#000000cc; z-index:1000; align-items:center; justify-content:center;">
-      <div style="background:white; padding:30px; border-radius:10px; max-width:400px; width:80%; color:#4D613C;">
-        <h3>What do you need most right now?</h3>
-        <form id="quizForm">
-          <label><input type="radio" name="need" value="calm" required /> Calm & Balance</label><br><br>
-          <label><input type="radio" name="need" value="clarity" /> Clarity & Focus</label><br><br>
-          <label><input type="radio" name="need" value="love" /> Love & Compassion</label><br><br>
-          <label><input type="radio" name="need" value="power" /> Power & Creativity</label><br><br>
-          <button type="submit" style="margin-top:10px; padding: 8px 16px; background-color: #4D613C; color:white; border:none; border-radius:5px;">Reveal My Crystal</button>
-          <button type="button" id="closeQuiz" style="margin-left:10px; background:none; border:none; color:#4D613C; cursor:pointer;">Cancel</button>
-        </form>
-        <div id="quizResult" style="margin-top:20px; display:none;"></div>
-      </div>
-    </div>
-
-    <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/1.jpg" alt="Raw Crystal" />
-      <div class="product-name">Raw Crystal</div>
-      <div class="product-desc">Calming energy for spiritual healing and intuition.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-    <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/3.jpg" alt="Clear Green Quartz" />
-      <div class="product-name">Clear Green Quartz</div>
-      <div class="product-desc">Promotes self-love, compassion, and emotional healing.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-    <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/2.jpg" alt="Galaxy Crystal" />
-      <div class="product-name">Galaxy Crystal</div>
-      <div class="product-desc">Amplifies energy and helps with mental clarity.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-    <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/4.jpg" alt="Raw Crystal" />
-      <div class="product-name">Raw Crystal</div>
-      <div class="product-desc">Brings light, abundance, and creative energy.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-     <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/5.jpg" alt="Candy Crystal" />
-      <div class="product-name">Candy Crystal</div>
-      <div class="product-desc">Brings light, abundance, and creative energy.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-     <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/6.jpg" alt="Oil Inclusion Crystal" />
-      <div class="product-name">Oil Inclusion Crystal</div>
-      <div class="product-desc">Treasure of Nature, colorful, and full of energy.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-     <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/9.jpg" alt="Clear Quartz" />
-      <div class="product-name">Clear Quartz</div>
-      <div class="product-desc">Clear, Pure, and Spiritual.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-     <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/10.jpg" alt="Citrine" />
-      <div class="product-name">Citrine</div>
-      <div class="product-desc">Sunlit, Uplifting, and Abundant.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-     <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/11.jpg" alt="Moonstone" />
-      <div class="product-name">Moonstone</div>
-      <div class="product-desc">Luminous, Iridescent, and Nurturing.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div> <div class="product fade-in">
-      <img src="https://raw.githubusercontent.com/chloechuuu/crystal-store/main/images/12.jpg" alt="Amethyst" />
-      <div class="product-name">Amethyst</div>
-      <div class="product-desc">Regal, Mystical, and Grounding.</div>
-      <button class="wishlist-btn">♡ Add to Wishlist</button>
-    </div>
-  </section>
-
-  <section class="philosophy fade-in">
-    <p>
-      At Pure Stillness, we believe that beauty lies in simplicity.  
-      Our raw crystals are thoughtfully selected to support your emotional balance, cleanse your space, and ground your energy.  
-      Let these natural stones bring moments of peace and mindfulness to your everyday life.
-    </p>
-  </section>
-
-  <footer>
-    Follow us: 
-    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a> |
-    <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a><br><br>
-    © 2025 Pure Stillness. All rights reserved.
-  </footer>
-
-  <script>
-    // Wishlist toggle
-    document.querySelectorAll('.wishlist-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isAdded = btn.classList.contains('added');
-        if (isAdded) {
-          btn.textContent = '♡ Add to Wishlist';
-          btn.style.backgroundColor = 'transparent';
-          btn.style.color = '#4D613C';
-          btn.classList.remove('added');
-        } else {
-          btn.textContent = '♥ Added to Wishlist';
-          btn.style.backgroundColor = '#4D613C';
-          btn.style.color = 'white';
-          btn.classList.add('added');
-        }
-      });
-    });
-
-    // 淡入动画
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    fadeEls.forEach(el => observer.observe(el));
-  
-    // Product name click highlight
-    document.querySelectorAll('.product-name').forEach(name => {
-      name.addEventListener('click', () => {
-        name.classList.toggle('clicked');
-      });
-    });
-
-    // 打开测试弹窗
-    document.getElementById('startTestBtn').addEventListener('click', () => {
-      document.getElementById('quizModal').style.display = 'flex';
-    });
-
-    // 关闭弹窗
-    document.getElementById('closeQuiz').addEventListener('click', () => {
-      document.getElementById('quizModal').style.display = 'none';
-    });
-    
-    // 提交测试表单
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const value = document.querySelector('input[name="need"]:checked').value;
-      let result = "";
-
-      if (value === 'calm') {
-        result = "🧘 You need **Amethyst** – for grounding and spiritual calm.";
-      } else if (value === 'clarity') {
-        result = "🔍 You need **Clear Quartz** – for focus and clarity.";
-      } else if (value === 'love') {
-        result = "💗 You need **Green Quartz** – to open your heart with self-love.";
-      } else if (value === 'power') {
-        result = "🌞 You need **Citrine** – to awaken creativity and energy.";
-      }
-      const resultBox = document.getElementById('quizResult');
-      resultBox.innerHTML = `<p style="font-size:15px;">${result}</p>`;
-      resultBox.style.display = 'block';
-    });
-  </script>
+  <header>Header content here</header>
+  <main>
+    <h1>Welcome to Pure Stillness</h1>
+    <p>Check out this dreamy background effect.</p>
+  </main>
 </body>
 </html>
