@@ -12,11 +12,11 @@
     background: linear-gradient(120deg, #e6f0e9, #f9f6f2, #d7e4dd);
     background-size: 400% 400%;
     animation: glowFlow 30s ease infinite;
-    z-index: -2;
-    opacity: 0.5;
-    filter: blur(60px);
-    mix-blend-mode: lighten;
-    }
+    z-index: -1; /* 改为比 stars 更高 */
+    opacity: 0.7;  /* 提高可见度 */
+    filter: blur(30px);  /* 降低模糊程度 */
+    mix-blend-mode: lighten; /* 更自然地混合 */
+  }
 
     @keyframes glowFlow {
       0% {
