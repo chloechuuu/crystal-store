@@ -187,10 +187,33 @@
     opacity: 1;
     transform: translateY(0);
   }
+  .crystal-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.03), transparent),
+              radial-gradient(ellipse at bottom, rgba(180, 220, 200, 0.04), transparent);
+    animation: flowBackground 10s infinite alternate;
+  }
+
+  @keyframes flowBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
 </style>
   
 </head>
 <body>
+  <div class="crystal-particles"></div>
   <div class="morning-glow-bg"></div>
   <div class="stars"></div>
 
