@@ -14,7 +14,34 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #F1BBC9;
     }
-
+    #cursor-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+    }
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      animation: fadeOut 0.8s linear forwards;
+    }
+    @keyframes fadeOut {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
     .background-effect, .crystal-particles {
       position: fixed;
       top: 0; left: 0;
@@ -302,7 +329,7 @@
     <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a><br><br>
     © 2025 Pure Stillness. All rights reserved.
   </footer>
-
+  <div id="cursor-particles"></div>
   <script>
     document.querySelectorAll('.wishlist-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -329,6 +356,18 @@
       name.addEventListener('click', () => {
         name.classList.toggle('clicked');
       });
+    });
+    document.addEventListener("mousemove", function(e) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.left = `${e.clientX}px`;
+      particle.style.top = `${e.clientY}px`;
+
+      document.getElementById("cursor-particles").appendChild(particle);
+
+      setTimeout(() => {
+        particle.remove();
+      }, 800);
     });
   </script>
 </body>
