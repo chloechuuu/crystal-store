@@ -75,6 +75,33 @@
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
     }
+    .floating-moon-stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Full_Moon_Luc_Viatour.jpg/600px-Full_Moon_Luc_Viatour.jpg'),
+        radial-gradient(circle, #ffffff22 1px, transparent 1px);
+      background-repeat: no-repeat, repeat;
+      background-position: 80% 10%, 0 0;
+      background-size: 80px 80px, 40px 40px;
+      animation: starFloat 30s linear infinite;
+      opacity: 0.1;
+      filter: blur(0.5px);
+    }
+
+    @keyframes starFloat {
+      from {
+        background-position: 80% 10%, 0 0;
+      }
+      to {
+        background-position: 80% 10%, 100% 200%;
+      }
+    }
 
     header {
       background-color: #F1BBC9;
@@ -330,6 +357,7 @@
     © 2025 Pure Stillness. All rights reserved.
   </footer>
   <div id="cursor-particles"></div>
+  <div class="floating-moon-stars"></div>
   <script>
     document.querySelectorAll('.wishlist-btn').forEach(btn => {
       btn.addEventListener('click', () => {
