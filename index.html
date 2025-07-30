@@ -6,51 +6,19 @@
   <title>PURE STILLNESS | Healing Crystals</title>
   <style>
     html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
+      height: 100%; margin: 0; padding: 0;
       overflow-x: hidden;
       background-color: #2E3A34;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #F1BBC9;
     }
-    #cursor-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      z-index: 1000;
-    }
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-      animation: fadeOut 0.8s linear forwards;
-    }
-    @keyframes fadeOut {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.5);
-        opacity: 0;
-      }
-    }
-    .background-effect, .crystal-particles {
+    .background-effect, .crystal-particles, .floating-moon-stars {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100vw; height: 100vh;
       pointer-events: none;
-      z-index: -1;
+      z-index: -2;
     }
-
     .background-effect {
       background: radial-gradient(circle at 30% 40%, #d0e8cf 0%, transparent 70%),
                   radial-gradient(circle at 80% 80%, #f9f1e5 0%, transparent 70%);
@@ -59,30 +27,20 @@
       background-size: 200% 200%;
       background-position: center;
     }
-
     @keyframes bgGlow {
       0% { background-position: 30% 40%, 80% 80%; }
       100% { background-position: 80% 80%, 30% 40%; }
     }
-
     .crystal-particles {
       background: radial-gradient(ellipse at top, rgba(255,255,255,0.03), transparent),
                   radial-gradient(ellipse at bottom, rgba(180,220,200,0.04), transparent);
       animation: flowBackground 10s infinite alternate;
     }
-
     @keyframes flowBackground {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
     }
     .floating-moon-stars {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -2;
       background-image:
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Full_Moon_Luc_Viatour.jpg/600px-Full_Moon_Luc_Viatour.jpg'),
         radial-gradient(circle, #ffffff33 1.2px, transparent 1.2px);
@@ -92,154 +50,36 @@
       animation: starFloat 30s linear infinite;
       opacity: 0.25;
     }
-
-
     @keyframes starFloat {
-      from {
-        background-position: 80% 10%, 0 0;
-      }
-      to {
-        background-position: 80% 10%, 100% 200%;
-      }
+      from { background-position: 80% 10%, 0 0; }
+      to { background-position: 80% 10%, 100% 200%; }
     }
-
-    header {
-      background-color: #F1BBC9;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-      position: relative;
+    #cursor-particles {
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      width: 100%; height: 100%;
+      z-index: 1000;
     }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #4D613C;
+    .particle {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      animation: fadeOut 0.8s linear forwards;
     }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #4D613C;
-      font-size: 14px;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 50px 30px 30px;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      padding: 60px 40px;
-      z-index: 2;
-      position: relative;
-    }
-
-    .product {
-      border: 1px solid #4D613C;
-      border-radius: 12px;
-      padding: 16px;
-      background: white;
-      text-align: center;
-      transition: transform 0.2s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-    }
-
-    .product:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .product img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .product-name {
-      margin-top: 12px;
-      font-weight: 500;
-      font-size: 16px;
-      color: #4D613C;
-      cursor: pointer;
-    }
-
-    .product-name.clicked {
-      background-color: #F1BBC9;
-      color: #2A2F33;
-      padding: 4px 8px;
-      border-radius: 8px;
-    }
-
-    .wishlist-btn {
-      margin-top: 12px;
-      padding: 6px 12px;
-      border: 1px solid #4D613C;
-      background-color: transparent;
-      border-radius: 20px;
-      font-size: 13px;
-      color: #4D613C;
-      cursor: pointer;
-    }
-
-    .wishlist-btn:hover {
-      background-color: #4D613C;
-      color: white;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .philosophy, footer {
-      padding: 60px 40px;
-      text-align: center;
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    footer {
-      background-color: #4D613C;
-      color: #F1BBC9;
-      font-size: 13px;
-    }
-
-    footer a {
-      color: #F1BBC9;
-      margin: 0 10px;
-      text-decoration: none;
+    @keyframes fadeOut {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
   <div class="background-effect"></div>
   <div class="crystal-particles"></div>
+  <div class="floating-moon-stars"></div>
+  <div id="cursor-particles"></div>
 
   <header>
     <div class="logo">PURE STILLNESS</div>
@@ -390,12 +230,8 @@
       particle.classList.add("particle");
       particle.style.left = `${e.clientX}px`;
       particle.style.top = `${e.clientY}px`;
-
       document.getElementById("cursor-particles").appendChild(particle);
-
-      setTimeout(() => {
-        particle.remove();
-      }, 800);
+      setTimeout(() => particle.remove(), 800);
     });
   </script>
 </body>
